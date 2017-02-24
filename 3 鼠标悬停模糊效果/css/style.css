@@ -60,8 +60,8 @@ a {
 	display: block;
 	width: 80%;
 	height: 80%;
-	border-left: 4px solid #fff;
-	border-right: 4px solid #fff;
+	border-left: 2px solid #fff;
+	border-right: 2px solid #fff;
 	position: absolute;
 	left: 10%;
 	top: 10%;
