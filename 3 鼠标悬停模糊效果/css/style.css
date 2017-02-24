@@ -1,0 +1,119 @@
+body {
+	font-family: Arial;
+}
+a {
+	text-decoration: none;
+}
+.container {
+	width: 650px;
+	height: 380px;
+	overflow: hidden;
+	position: relative;
+}
+.content {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+}
+.content h2 {
+	font-size: 46px;
+	font-weight: bold;
+	margin-top: 120px;
+	background-image: -webkit-linear-gradient(left, #00CCCC, #FF1493 25%, #00CCCC 50%, #FF1493 75%, #00CCCC 100%);
+	-webkit-background-clip: text;
+	color: transparent;
+	background-size: 200% 100%;
+	animation: stream 4s infinite linear;
+	opacity: 0;
+	transform: translateY(20px);
+}
+.content a {
+	width: 100%;
+	text-align: center;
+	display: block;
+	font-size: 24px;
+	position: absolute;
+	z-index: 2;
+	color: #f6c;
+	opacity: 0;
+	transform: translateY(20px);
+}
+.content::before {
+	content: '';
+	display: block;
+	width: 80%;
+	height: 80%;
+	border-top: 4px solid #fff;
+	border-bottom: 4px solid #fff;
+	position: absolute;
+	left: 10%;
+	top: 10%;
+	box-sizing: border-box;
+	transform: scale(0,1);
+	transition: all .5s;
+}
+.content::after {
+	content: '';
+	display: block;
+	width: 80%;
+	height: 80%;
+	border-left: 4px solid #fff;
+	border-right: 4px solid #fff;
+	position: absolute;
+	left: 10%;
+	top: 10%;
+	box-sizing: border-box;
+	transform: scale(1,0);
+	transition: all .5s;
+}
+.container:hover img{
+	-webkit-filter: blur(2px);
+	filter: blur(2px);
+}
+.container:hover .content::before {
+	transform: scale(1,1);
+	transition: all .5s;
+}
+.container:hover .content::after {
+	transform: scale(1,1);
+	transition: all .5s;
+}
+.container:hover .content h2 {
+	opacity: 1;
+	transform: translateY(0px);
+	transition: all .5s;
+}
+.container:hover .content a {
+	opacity: 1;
+	transform: translateY(0px);
+	transition: all .5s;
+	animation: changecol 3s linear;
+}
+@keyframes stream {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -100% 0;
+	}
+}
+@keyframes changecol {
+	0% {
+		color: #36f;
+	}
+	25% {
+		color: #980000;
+	}
+	50% {
+		color: #93f;
+	}
+	75% {
+		color: #090;
+	}
+	100% {
+		color: #f6c;
+	}
+}
