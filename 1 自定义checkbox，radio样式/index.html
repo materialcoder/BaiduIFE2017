@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义checkbox，radio样式——背景图片</title>
+	<style>
+		input {
+			display: none;
+			height: 16px;
+		}
+		label {
+			height: 16px;
+			padding-left: 16px;
+			display: block;
+			margin-bottom: 10px;
+		}
+		label.radio {
+			background: url(img/bg.png) no-repeat 0 -12px;
+		}
+		input[type="radio"]:checked + label.radio {
+			background: url(img/bg.png) no-repeat 0 -56px;
+		}
+		label.checkbox {
+			background: url(img/bg.png) no-repeat 0 -34px;
+		}
+		input[type="checkbox"]:checked + label.checkbox {
+			background: url(img/bg.png) no-repeat 0 -76px;
+		}
+	</style>
+</head>
+<body>
+	<input type="radio" id="a"><label for="a" class="radio"></label>
+	<input type="checkbox" id="b"><label for="b" class="checkbox"></label>
+</body>
+</html>

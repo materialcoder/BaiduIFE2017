@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义checkbox，radio样式——伪元素</title>
+	<style>
+		input {
+			display: none;
+			height: 16px;
+		}
+		label {
+			height: 16px;
+			padding-left: 16px;
+			position: relative;
+			display: block;
+			margin-bottom: 10px;
+
+		}
+		label.radio::before {
+			content: '';
+			display: block;
+			width: 14px;
+			height: 14px;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		label.radio::after {
+			content: '';
+			display: none;
+			width: 6px;
+			height: 6px;
+			background: #f00;
+			border-radius: 50%;
+			position: absolute;
+			top: 5px;
+			left: 5px;
+		}
+		input[type="radio"]:checked + label.radio::before {
+			border: 1px solid #f00;
+		}
+		input[type="radio"]:checked + label.radio::after {
+			display: block;
+		}
+		label.checkbox::before {
+			content: '';
+			display: block;
+			width: 14px;
+			height: 14px;
+			border: 1px solid #ccc;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		label.checkbox::after {
+			content: '';
+			display: none;
+			width: 6px;
+			height: 3px;
+			border-left: 2px solid #f00;
+			border-bottom: 2px solid #f00;
+			transform: rotate(-45deg);
+			position: absolute;
+			top: 5px;
+			left: 4px;
+		}
+		input[type="checkbox"]:checked + label.checkbox::before {
+			border: 1px solid #f00;
+		}
+		input[type="checkbox"]:checked + label.checkbox::after {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<input type="radio" id="a"><label for="a" class="radio"></label>
+	<input type="checkbox" id="b"><label for="b" class="checkbox"></label>
+</body>
+</html>
