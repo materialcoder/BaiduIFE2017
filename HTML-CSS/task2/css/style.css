@@ -170,12 +170,15 @@ figure img {
 	margin-top: 20px;
 	line-height: 40px;
 	text-align: center;
-	background: blue;
+	background: #0066FF;
 	color: #fff;
 	border-radius: 4px;
 	font-family: "Microsoft Yahei";
 	font-size: 16px;
 	cursor: pointer;
+}
+.info > form > button:hover {
+	background: #007799;
 }
 
 /* 底部 */
