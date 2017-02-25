@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.main {
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -200px;
+	background: #ccc;
+	overflow: hidden;
+}
+.main::before,.main::after {
+	content: '';
+	display: block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: #fc0;
+}
+.main::before {
+	position: absolute;
+	top: -50px;
+	left: -50px;
+}
+.main::after {
+	position: absolute;
+	bottom: -50px;
+	right: -50px;
+}
