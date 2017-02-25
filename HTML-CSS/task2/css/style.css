@@ -1,0 +1,190 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+body {
+	font-family: "Microsoft Yahei";
+	background: #eee;
+}
+ul {
+	list-style-type: none;
+}
+
+/* header */
+header {
+	width: 100%;
+	height: 60px;
+	background: #0a0a0a;
+	color: #fff;
+}
+header > h1 {
+	float: left;
+	font-size: 26px;
+	line-height: 60px;
+	margin-left: 20px;
+}
+header > nav {
+	float: right;
+}
+header > nav > ul > li {
+	display: inline-block;
+	line-height: 60px;
+	width: 100px;
+	text-align: center;
+	color: #fff;
+}
+header > nav > ul > li > a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+}
+
+/* article部分 */
+article, .pics, .info {
+	width: 90%;
+	margin: 20px auto;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 20px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.9);
+}
+article > h2 {
+	margin-top: 20px;
+}
+article > h3 {
+	margin: 16px 0;
+}
+article > span {
+	font-size: 14px;
+	display: block;
+	margin-bottom: 10px;
+}
+article > p,
+article > ul {
+	text-indent: 2em;
+}
+
+/* 图片部分 */
+figure {
+	width: 220px;
+	border: 1px solid #ccc;
+	text-align: center;
+	padding: 10px;
+	margin: 20px 30px;
+}
+figure figcaption {
+	margin-bottom: 10px;
+}
+figure img {
+	width: 220px;
+	height: 130px;
+}
+
+/* 最后一篇文章表格部分 */
+.art3 > ol {
+	margin-bottom: 10px;
+}
+.art3 > ol > li {
+	margin-left: 40px;
+	line-height: 30px;
+	font-weight: bold;
+}
+.art3 > table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.art3 > table > thead {
+	background: #000;
+	text-align: left;
+	color: #fff;
+}
+.art3 table tr td,
+.art3 table th {
+	padding: 4px;
+	border: 1px solid #ccc;
+}
+.art3 table tr td {
+	font-size: 14px;
+}
+.art3 table tbody tr:last-of-type {
+	background: #ccc;
+	font-weight: bold;
+}
+
+/* 表单部分 */
+.info > h3 {
+	padding: 10px;
+	border-left: 4px solid #ccc;
+}
+.info > form {
+	width: 100%;
+}
+.info > form > label {
+	width: 40%;
+	display: inline-block;
+	text-align: right;
+	margin-right: 10px;
+	line-height: 30px;
+}
+.info > form > input.text {
+	border: 1px solid #ccc;
+	width: 140px;
+	height: 20px;
+	padding: 2px;
+	margin: 4px;
+}
+.info > form > input[type="radio"] {
+	margin-right: 4px;
+}
+.info > form > input[type="checkbox"] {
+	margin-right: 4px;
+}
+.info > form > p {
+	margin-left: 40%;
+	margin-bottom: 20px;
+	padding-left: 18px;
+	font-size: 14px;
+	color: #aaa;
+}
+.info > form > select {
+	border: 1px solid #ccc;
+	padding: 2px;
+	font-family: "Microsoft Yahei";
+}
+.info > form > textarea {
+	width: 50%;
+	height: 100px;
+	border: 1px solid #ccc;
+	margin-top: 10px;
+	padding: 2px;
+	font-size: 14px;
+}
+.info > form > textarea,
+.info > form > label:last-of-type {
+	vertical-align: top;
+}
+.info > form > button {
+	width: 100%;
+	height: 40px;
+	margin-top: 20px;
+	line-height: 40px;
+	text-align: center;
+	background: blue;
+	color: #fff;
+	border-radius: 4px;
+	font-family: "Microsoft Yahei";
+	font-size: 16px;
+	cursor: pointer;
+}
+
+/* 底部 */
+footer {
+	width: 100%;
+	height: 50px;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	padding-top: 40px;
+}
