@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>三栏式布局——浮动方法</title>
+	<title>三栏式布局——定位方法（没有实现）</title>
 	<style>
 		* {
 			margin: 0;
@@ -15,10 +15,12 @@
 		}
 		.container {
 			width: 100%;
+			height: auto;
 			border: 1px solid #999;
 			padding: 20px;
 			box-sizing: border-box;
 			background: #eee;
+			position: relative;
 		}
 		.team, .personal {
 			height: auto;
@@ -26,14 +28,17 @@
 			background: #fff;
 			padding: 20px;
 			box-sizing: border-box;
+			position: absolute;
 		}
 		.team {
-			float: left;
 			width: 200px;
+			top: 20px;
+			left: 20px;
 		}
 		.personal {
 			width: 120px;
-			float: right;
+			top: 20px;
+			right: 20px;
 		}
 		.logo {
 			width: 80px;
@@ -56,11 +61,6 @@
 			float: right;
 			font-size: 16px;
 			text-align: right;
-		}
-		.container::after {
-			content: '';
-			display: block;
-			clear: both;
 		}
 		.intro {
 			border: 1px solid #999;
