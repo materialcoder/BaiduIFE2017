@@ -3,236 +3,58 @@
 <head>
 	<meta charset="UTF-8">
 	<title>音乐播放器</title>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-		}
-		body {
-			font-family: "Microsoft Yahei";
-		}
-		@font-face {
-			font-family: 'iconfont';
-		    src: url('img/font/iconfont.eot');
-		    src: url('img/font/iconfont.eot?#iefix') format('embedded-opentype'), 
-			     url('img/font/iconfont.woff') format('woff'),
-			     url('img/font/iconfont.ttf') format('truetype'),
-			     url('img/font/iconfont.svg#iconfont') format('svg');
-		}
-		.iconfont{
-		    font-family:"iconfont";
-		    font-size:32px;
-		    font-style:normal;
-		    color: #666;
-		    cursor: pointer;
-		}
-		.music {
-			width: 750px;
-			height: 300px;
-			margin: 100px auto 0 auto;
-		}
-		.detail {
-			width: 400px;
-			height: 100%;
-			float: left;
-			margin-top: 30px;
-		}
-		.detail h3 {
-			font-size: 24px;
-			color: #333;
-			letter-spacing: 1px;
-			margin: 20px 0 10px;
-		}
-		.detail p {
-			font-size: 16px;
-			color: #666;
-		}
-		.detail .info {
-			width: 100%;
-			height: 30px;
-			line-height: 30px;
-		}
-		.detail .info .left {
-			font-size: 14px;
-			color: #999;
-		}
-		.detail .info .left .iconfont {
-			font-size: 14px;
-			margin-left: 10px;
-		}
-		.detail .info .right .iconfont {
-			font-size: 18px;
-			margin-left: 10px;
-		}
-		.progress {
-			width: 100%;
-			height: 2px;
-			background: #ccc;
-			position: relative;
-		}
-		.s_btn {
-			width: 6px;
-			height: 6px;
-			border-radius: 50%;
-			background: #f00;
-			position: absolute;
-			top: 0;
-			left: 0;
-			margin-top: -3px;
-			border: 1px solid #abcdef;
-		}
-		.bar {
-			width: 0;
-			height: 2px;
-			background: red;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 2;
-		}
-		.btn {
-			width: 100%;
-			height: 100px;
-			margin-top: 50px;
-		}
-		.btn .del, .btn .btn_right i {
-			margin-left: 30px;
-		}
-		.bg {
-			width: 300px;
-			height: 100%;
-			float: right;
-			border-radius: 50%;
-			overflow: hidden;
-		}
-		.bg img {
-			width: 300px;
-			height: 300px;
-			display: block;
-		}
-		.rotate {
-			animation: rote 3s infinite linear;
-		}
-		.left {
-			float: left;
-		}
-		.right {
-			float: right;
-		}
-		.hide {
-			display: none;
-		}
-		.show {
-			display: block;
-		}
-		@keyframes rote {
-			0% {
-				transform: rotateZ(0deg);
-			}
-			100% {
-				transform: rotateZ(360deg);
-			}
-		}
-	</style>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="music">
+		<!-- 歌曲详细信息 -->
 		<div class="detail">
-			<h3>歌名</h3>
-			<p>歌手</p>
+			<h3 class="name">歌名</h3>
+			<p class="singer">歌手</p>
+			<!-- 音量控制等 -->
 			<div class="info">
 				<div class="left">
 					<span class="time">00:00</span>
 					<i class="iconfont volume">&#xe60b;</i>
+					<span class="v-progress">
+						<div class="v-gray"></div>
+						<div class="v-bar"></div>
+					</span>
 				</div>
 				<div class="right">
-					<i class="iconfont list">&#xe64e;</i>
-					<i class="iconfont download">&#xe612;</i>
-					<i class="iconfont add">&#xe68b;</i>
-					<i class="iconfont share">&#xe648;</i>
+					<i class="iconfont list" title="歌曲列表">&#xe64e;</i>
+					<i class="iconfont download" title="下载">&#xe612;</i>
+					<i class="iconfont add" title="添加">&#xe68b;</i>
+					<i class="iconfont share" title="分享">&#xe648;</i>
 				</div>
 			</div>
+			<!-- 播放进度条 -->
 			<div class="progress">
-				<div class="s_btn"></div>
+				<div class="gray"></div>
 				<div class="bar"></div>
 			</div>
+			<!-- 播放操作按钮 -->
 			<div class="btn">
 				<div class="left">
-					<i class="iconfont shoucang">&#xe666;</i>
-					<i class="iconfont del">&#xe61b;</i>
+					<i class="iconfont shoucang" title="收藏">&#xe666;</i>
+					<i class="iconfont del" title="删除">&#xe61b;</i>
 				</div>
 				<div class="btn_right right">
-					<i class="iconfont prev">&#xe64d;</i>
-					<i class="iconfont play">&#xe696;</i>
-					<i class="iconfont pause hide">&#xe634;</i>
-					<i class="iconfont next">&#xe600;</i>
+					<i class="iconfont prev" title="上一曲">&#xe64d;</i>
+					<i class="iconfont play" title="开始播放">&#xe696;</i>
+					<i class="iconfont pause hide" title="暂停">&#xe634;</i>
+					<i class="iconfont next" title="下一曲">&#xe600;</i>
 				</div>
 			</div>
-			<audio src="source/ceshi.mp3" id="myMusic"></audio>
+			<audio src="" id="myMusic">您的浏览器版本该退休啦...换个小鲜肉再来找我吧</audio>
 		</div>
-
+		<!-- 歌曲封面图 -->
 		<div class="bg">
-			<img src="img/bg.jpg" alt="">
+			<img src="img/bg.jpg" alt="" class="pic">
 		</div>
 	</div>
+	
 	<script src="script/jquery-3.1.0.min.js"></script>
-	<script>
-		var $myMusic = $("#myMusic");
-		// 暂停和播放
-		$(".play").click(function() {
-			$myMusic.get(0).play();
-			$(this).hide();
-			$('.pause').show();
-			$('.bg').addClass('rotate');
-		});
-		$(".pause").click(function() {
-			$myMusic.get(0).pause();
-			$(this).hide();
-			$('.play').show();
-			$('.bg').removeClass('rotate');
-		});
-
-		var w = $('.progress').width();
-
-		//显示进度条
-		$myMusic.get(0).addEventListener("timeupdate",function(){
-			// console.log(this.currentTime);
-			// console.log(this.duration);
-			var currentTime = this.currentTime;
-			var duration = this.duration;
-			var scale = currentTime/duration;
-			var x = scale*w;
-			var m = Math.floor(currentTime/60);
-			var s = Math.floor(currentTime%60);
-			if(s<10){
-				s="0"+s;
-			}
-			$('.bar').css("width",x+"px");
-			$('.s_btn').css("left",x+"px");
-			$('.time').text(m+":"+s);
-			if(currentTime == duration) {
-				$('.pause').hide();
-				$('.play').show();
-				$('.bg').removeClass('rotate');
-			}
-		});
-
-		// 拖拽进度条
-		$('.progress').click(function(e){
-			var x = e.pageX;
-			var l = $(this).offset().left;
-			var _left = x - l;
-			if(_left < 0){
-				_left = 0;
-			} else if (_left > w) {
-				_left = w;
-			}
-			$('.bar').css("width",_left+"px");
-			$('.s_btn').css("left",_left+"px");
-			var scale = _left/w;
-			$myMusic.get(0).currentTime = scale * $myMusic.get(0).duration;
-		});
-
-	</script>
+	<script src="script/script.js"></script>
 </body>
 </html>
