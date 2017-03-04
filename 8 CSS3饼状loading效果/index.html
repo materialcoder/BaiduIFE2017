@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3饼状loading效果</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 120px;
+			height: 120px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -60px;
+			margin-left: -60px;
+			transform: rotate(-45deg);
+		}
+		/* 四分之一圆弧 */
+		.outer {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			border: 2px solid #f00;
+			border-top-color: transparent;
+			position: absolute;
+			top: 8px;
+			left: 8px;
+			animation: inner 1s infinite linear;
+		}
+		/* 底部整圆 */
+		.inner,.inner2 {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			position: absolute;
+			top: 20px;
+			left: 20px;
+		}
+		.inner {
+			background-color: rgb(247,12,12);
+			animation: hided 2s steps(1,end) infinite;
+		}
+		.inner2 {
+			background-color: rgb(236,124,124);
+			animation: showed 2s steps(1,end) infinite;
+		}
+
+		/* 前半部分从浅色到深色 */
+		/* 左边的二分之一圆 */
+		.left-half {
+			border-radius: 50%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border: 40px solid rgb(236,124,124);
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			animation: inner 1s infinite linear;
+		}
+		/* 右边的二分之一圆 */
+		.right-half {
+			border-radius: 50%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border: 40px solid rgb(236,124,124);
+			border-top-color: transparent;
+			border-left-color: transparent;
+			animation: hided 1s steps(1,end) infinite;
+		}
+		.left-half2 {
+			border-radius: 50%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border: 40px solid rgb(247,12,12);
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			animation: showed 1s steps(1,end) infinite;
+		}
+
+		/* 从浅色到深色部分（后半部分） */
+		.inner2 .left-half {
+			border-color: rgb(247,12,12);
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+		}
+		.inner2 .right-half {
+			border-color: rgb(247,12,12);
+			border-top-color: transparent;
+			border-left-color: transparent;
+		}
+		.inner2 .left-half2 {
+			border-color: rgb(236,124,124);
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+		}
+		@keyframes inner {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(-360deg);
+			}
+		}
+		@keyframes showed {
+			0% {
+				opacity: 0;
+			}
+			50%,100% {
+				opacity: 1;
+			}
+		}
+		@keyframes hided {
+			0% {
+				opacity: 1;
+			}
+			50%, 100% {
+				opacity: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="outer"></div>
+		<div class="inner">
+			<div class="left-half"></div>
+			<div class="right-half"></div>
+			<div class="left-half2"></div>
+		</div>
+		<div class="inner2">
+			<div class="left-half"></div>
+			<div class="right-half"></div>
+			<div class="left-half2"></div>
+		</div>
+	</div>
+</body>
+</html>
