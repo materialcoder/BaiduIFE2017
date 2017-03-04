@@ -1,0 +1,38 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: "Microsoft Yahei";
+}
+ul {
+	list-style: none;
+}
+.menu {
+	width: 170px;
+	padding: 20px 0;
+	margin-left: 200px;
+}
+.node ul {
+	margin-left: 20px;
+}
+.node .tree {
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 22px;
+	font-size: 16px;
+	cursor: pointer;
+}
+.node .span {
+	background: url(../img/span.png) no-repeat left center;
+}
+.node .close {
+	background: url(../img/close.png) no-repeat left center;
+}
+.node .nomore {
+	background: url(../img/nomore.png) no-repeat left center;
+}
+.node .node {
+	display: none;
+}
