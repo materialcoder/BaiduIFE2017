@@ -1,0 +1,57 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.stage {
+	width: 1000px;
+	margin: 0 auto;
+	-webkit-perspective: 800px;
+	perspective: 800px;
+	-webkit-perspective-origin: 50% 50%;
+	perspective-origin: 50% 50%;
+}
+.container {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	margin: 0 auto;
+	padding: 200px;
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	transition: transform .5s linear;
+}
+.container div {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	overflow: hidden;
+}
+.container div img {
+	width: 200px;
+	height: 200px;
+	display: block;
+}
+.pic1 {
+	transform: rotateY(0deg) translateZ(400px);
+}
+.pic2 {
+	transform: rotateY(45deg) translateZ(400px);
+}
+.pic3 {
+	transform: rotateY(90deg) translateZ(400px);
+}
+.pic4 {
+	transform: rotateY(135deg) translateZ(400px);
+}
+.pic5 {
+	transform: rotateY(180deg) translateZ(400px);
+}
+.pic6 {
+	transform: rotateY(225deg) translateZ(400px);
+}
+.pic7 {
+	transform: rotateY(270deg) translateZ(400px);
+}
+.pic8 {
+	transform: rotateY(315deg) translateZ(400px);
+}
