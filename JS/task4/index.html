@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE JavaScript Task 04</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+		ul li {
+			width: 20px;
+			font-size: 16px;
+			font-weight: bold;
+			text-align: center;
+			padding: 10px;
+			background: #abcdef;
+			color: #fff;
+			float: left;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="inputVal">
+	<button id="leftIn">左侧进</button>
+	<button id="rightIn">右侧进</button>
+	<button id="leftOut">左侧出</button>
+	<button id="rightOut">右侧出</button>
+	<ul id="list">
+		<!-- <li>23</li>
+		<li>23</li>
+		<li>23</li> -->
+	</ul>
+
+	<script type="text/javascript">
+		// 获取input的值，并将其存入数组中
+		var data = [];
+
+		// 获取按钮
+		var leftIn = document.getElementById('leftIn');  //左侧进
+		var leftOut = document.getElementById('leftOut'); //右侧进
+		var rightIn = document.getElementById('rightIn'); //左侧出
+		var rightOut = document.getElementById('rightOut'); //右侧出
+		
+		leftIn.onclick = function() {
+			var val = document.getElementById('inputVal').value;
+			data.unshift(val);
+			display();
+		}
+		leftOut.onclick = function() {
+			var val = document.getElementById('inputVal').value;
+			var num = data.shift(val);
+			display();
+			alert("左侧删除数字为："+num);
+		}
+		rightIn.onclick = function() {
+			var val = document.getElementById('inputVal').value;
+			data.push(val);
+			display();
+		}
+		rightOut.onclick = function() {
+			var val = document.getElementById('inputVal').value;
+			var num = data.pop(val);
+			display();
+			alert("右侧删除数字为："+num);
+		}
+		
+		// 页面中显示效果
+		function display() {
+			var list = document.getElementById('list');
+			list.innerHTML = "";
+			for(var i=0;i<data.length;i++) {
+				list.innerHTML += "<li>"+data[i]+"</li>";
+			}
+		}
+			
+	</script>
+</body>
+</html>
