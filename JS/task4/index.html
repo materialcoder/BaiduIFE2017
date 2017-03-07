@@ -44,25 +44,42 @@
 		
 		leftIn.onclick = function() {
 			var val = document.getElementById('inputVal').value;
-			data.unshift(val);
-			display();
+			if(isNaN(val)) {
+				alert("请输入数字!");
+				return;
+			} else {
+				data.unshift(val);
+				display();
+			}
+			
 		}
 		leftOut.onclick = function() {
-			var val = document.getElementById('inputVal').value;
-			var num = data.shift(val);
-			display();
-			alert("左侧删除数字为："+num);
+			if(data.length > 0) {
+				var num = data.shift();
+				display();
+				alert("左侧删除数字为："+num);
+			} else {
+				alert("没有啦~~~");
+			}
 		}
 		rightIn.onclick = function() {
 			var val = document.getElementById('inputVal').value;
-			data.push(val);
-			display();
+			if(isNaN(val)) {
+				alert("请输入数字!");
+				return;
+			} else {
+				data.push(val);
+				display();
+			}
 		}
 		rightOut.onclick = function() {
-			var val = document.getElementById('inputVal').value;
-			var num = data.pop(val);
-			display();
-			alert("右侧删除数字为："+num);
+			if(data.length > 0) {
+				var num = data.pop();
+				display();
+				alert("右侧删除数字为："+num);
+			} else {
+				alert("没有啦~~~");
+			}
 		}
 		
 		// 页面中显示效果
