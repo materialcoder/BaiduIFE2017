@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE JavaScript Task 05</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+		ul li {
+			width: 20px;
+			background: #abcdef;
+			float: left;
+			margin-right: 5px;
+		}
+		button {
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="inputVal">
+	<button id="leftIn">左侧进</button>
+	<button id="rightIn">右侧进</button>
+	<button id="leftOut">左侧出</button>
+	<button id="rightOut">右侧出</button>
+	<button id="small-to-large">从小到大排列</button>
+	<button id="large-to-small">从大到小排列</button>
+	<ul id="list">
+		<!-- <li>23</li>
+		<li>23</li>
+		<li>23</li> -->
+	</ul>
+
+	<script type="text/javascript">
+		// 获取input的值，并将其存入数组中
+		var data = [];
+
+		// 获取按钮
+		var leftIn = document.getElementById('leftIn');  //左侧进
+		var leftOut = document.getElementById('leftOut'); //右侧进
+		var rightIn = document.getElementById('rightIn'); //左侧出
+		var rightOut = document.getElementById('rightOut'); //右侧出
+		var sortLarge = document.getElementById('small-to-large');
+		var sortSmall = document.getElementById('large-to-small');
+
+		leftIn.onclick = function() {
+			var val = document.getElementById('inputVal').value;
+			if(data.length > 60) {
+				alert("我已经超负荷啦~装不下咯....");
+				return;
+			}
+			if(verifyVal(val)) {
+				data.unshift(val);
+				display();
+			}
+			console.log(data.length);
+		}
+		leftOut.onclick = function() {
+			if(data.length > 0) {
+				var num = data.shift();
+				display();
+				alert("左侧删除数字为："+num);
+			} else {
+				alert("没有啦~~~");
+			}
+		}
+		rightIn.onclick = function() {
+			var val = document.getElementById('inputVal').value;
+			if(data.length > 60) {
+				alert("我已经超负荷啦~装不下咯....");
+				return;
+			}
+			if(verifyVal(val)) {
+				data.push(val);
+				display();
+			}
+		}
+		rightOut.onclick = function() {
+			if(data.length > 0) {
+				var num = data.pop();
+				display();
+				alert("右侧删除数字为："+num);
+			} else {
+				alert("没有啦~~~");
+			}
+		}
+
+		// 从大到小进行排列
+		sortSmall.onclick = function() {
+			data.sort(function(a,b) {
+				return b-a;
+			});
+			display();
+		}
+		// 从小到大进行排列
+		sortLarge.onclick = function() {
+			data.sort(function(a,b) {
+				return a-b;
+			})
+			display();
+		}
+
+		// 页面中显示效果
+		function display() {
+			var list = document.getElementById('list');
+			var lis = document.getElementsByTagName('li');
+			list.innerHTML = "";
+			for(var i=0;i<data.length;i++) {
+				list.innerHTML += "<li></li>";
+				lis[i].style.height =data[i]*2+"px";
+				lis[i].style.marginTop =(100-data[i])*2+"px";
+				lis[i].title = data[i];
+			}
+		}
+
+		// 判断输入的是否是数字并且在10到100之间
+		function verifyVal(val) {
+			if(isNaN(val)) {
+				alert("请输入数字!");
+				return false;
+			} else if(val > 100 || val < 10) {
+				alert("请输入10~100之间的数字哦~");
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+	</script>
+</body>
+</html>
