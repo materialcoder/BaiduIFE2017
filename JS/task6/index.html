@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE JavaScript Task 06</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+		ul li {
+			font-size: 16px;
+			font-weight: bold;
+			text-align: center;
+			padding: 10px;
+			background: #abcdef;
+			color: #fff;
+			float: left;
+			margin-right: 10px;
+		}
+		.active {
+			color: #f00;
+		}
+	</style>
+</head>
+<body>
+	<!-- <input type="text" id="inputVal"> -->
+	<textarea name="" id="inputVal" cols="30" rows="10"></textarea>
+	<button id="leftIn">左侧进</button>
+	<button id="rightIn">右侧进</button>
+	<button id="leftOut">左侧出</button>
+	<button id="rightOut">右侧出</button>
+	<input type="text" id="searchInput">
+	<button id="search">搜索</button>
+	<ul id="list">
+		<!-- <li>23</li>
+		<li>23</li>
+		<li>23</li> -->
+	</ul>
+
+	<script type="text/javascript">
+		$ = function(el) {
+			return document.querySelector(el);
+		}
+
+		// 获取input的值，并将其存入数组中
+		var arrData = [];
+		
+		// 页面中显示结果
+		function render(str) {
+			$("#list").innerHTML = arrData.map(function(d) {
+				if(str!=null && str.length>0) {
+					d =d.replace(new RegExp(str,"g"),"<span class='active'>"+str+"</span>");
+				}
+				return "<li>"+d+"</li>";
+			}).join('');
+		}
+
+		// 将输入的字符串转化为数组
+		function getInputVal() {
+			var str = $("#inputVal").value.trim();
+			var arrWord = str.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/).filter(function(e) {
+				if(e!=null && e.length>0) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+			return arrWord;
+		}
+
+		// 点击搜索按钮时显示搜索结果
+		$("#search").onclick = function() {
+			var str = $("#searchInput").value.trim();
+			render(str);
+		}
+
+		// 左侧进
+		$("#leftIn").onclick = function() {
+			var insert = getInputVal();
+			for(var i=insert.length-1;i>=0;i--) {
+				arrData.unshift(insert[i]);
+			}
+			render();
+		}
+
+		// 左侧出
+		$("#leftOut").onclick = function() {
+			if(arrData.length > 0) {
+				var string = arrData.shift();
+				render();
+				alert("左侧被删除的是："+string);
+			} else {
+				alert("没有啦~~~");
+			}
+		}
+
+		// 右侧进
+		$("#rightIn").onclick = function() {
+			var insert = getInputVal();
+			for(var i=0;i<insert.length;i++) {
+				arrData.push(insert[i]);
+			}
+			render();
+		}
+
+		// 右侧出
+		$("#rightOut").onclick = function() {
+			if(arrData.length > 0) {
+				var string = arrData.pop();
+				render();
+				alert("右侧被删除的是："+string);
+			} else {
+				alert("没有啦~~~");
+			}
+		}
+		
+			
+	</script>
+</body>
+</html>
