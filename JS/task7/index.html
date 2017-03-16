@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript和树（一）</title>
+	<style>
+		div {
+			padding: 20px;
+			border: 1px solid #ccc;
+			display: flex;
+			justify-content: space-between;
+			transition: background-color .8s;
+		}
+		.root {
+			width: 728px;
+			margin: 100px auto 20px auto;
+		}
+		.left-child {
+			margin-right: 20px;
+		}
+		.btn {
+			padding: 5px;
+			width: 728px;
+			border: none;
+			margin: 0 auto;
+		}
+		.btn input {
+			width: 50px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="root">
+		<div class="left-child">
+			<div class="left-child">
+				<div class="left-child"></div>
+				<div class="right-child"></div>
+			</div>
+			<div class="right-child">
+				<div class="left-child"></div>
+				<div class="right-child"></div>
+			</div>
+		</div>
+		<div class="right-child">
+			<div class="left-child">
+				<div class="left-child"></div>
+				<div class="right-child"></div>
+			</div>
+			<div class="right-child">
+				<div class="left-child"></div>
+				<div class="right-child"></div>
+			</div>
+		</div>
+	</div>
+	<div class="btn">
+		<input type="button" value="前序">
+		<input type="button" value="中序">
+		<input type="button" value="后序">
+	</div>
+	<script>
+		// 获取元素，定义变量
+		var btn = document.getElementsByTagName('input'),
+			preBtn = btn[0],
+			inBtn = btn[1],
+			postBtn = btn[2],
+			treeRoot = document.getElementsByTagName('div')[0],
+			divList = [],
+			timer = null;
+
+		// 绑定事件
+		preBtn.onclick = function() {
+			innit();
+			preOrder(treeRoot);
+			change();
+		}
+		inBtn.onclick = function() {
+			innit();
+			inOrder(treeRoot);
+			change();
+		}
+		postBtn.onclick = function() {
+			innit();
+			postOrder(treeRoot);
+			change();
+		}
+
+		// 前序遍历
+		function preOrder(node) {
+			if(node!=null) {
+				divList.push(node);
+				// preOrder(node.children[0]);
+				preOrder(node.firstElementChild);
+				// preOrder(node.children[1]);
+				preOrder(node.lastElementChild);
+			}
+		}
+
+		// 中序遍历
+		function inOrder(node) {
+			if(node!=null) {
+				// inOrder(node.children[0]);
+				inOrder(node.firstElementChild);
+				divList.push(node);
+				//inOrder(node.children[1]);
+				inOrder(node.lastElementChild);
+			}
+		}
+
+		// 后序遍历
+		function postOrder(node) {
+			if(node!=null) {
+				// postOrder(node.children[0]);
+				postOrder(node.firstElementChild);
+				// postOrder(node.children[1]);
+				postOrder(node.lastElementChild);
+				divList.push(node);
+			}
+		}
+
+		// 初始界面
+		function innit() {
+			divList=[];
+			clearInterval(timer);
+			var divs = document.getElementsByTagName('div');
+			for(var i=0;i<divs.length;i++) {
+				divs[i].style.backgroundColor = "#fff";
+			}
+		}
+
+		// 改变背景色
+		function change() {
+			var i = 0,
+				len = divList.length;
+			divList[i].style.backgroundColor = "#abcdef";
+			timer =setInterval(function() {
+				i++;
+				if(i < len) {
+					divList[i-1].style.backgroundColor = "#fff";
+					divList[i].style.backgroundColor = "#abcdef";
+				} else {
+					clearInterval(timer);
+					divList[len-1].style.backgroundColor = "#fff";
+				}
+			},1000);
+		}
+	</script>
+</body>
+</html>
