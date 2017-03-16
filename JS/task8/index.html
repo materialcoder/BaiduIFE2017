@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript和树（二）</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js"></script>
+</head>
+<body>
+	<div class="root">
+		<p>Supper</p>
+		<div class="child-1">
+			<p>Co</p>
+			<div class="child-1">
+				<p>Apple</p>
+				<div class="child-1"><p>Pear</p></div>
+				<div class="child-2"><p>Pear</p></div>
+				<div class="child-3"><p>Bear</p></div>
+				<div class="child-4"><p>Cola</p></div>
+			</div>
+			<div class="child-2"><p>Phone</p></div>
+			<div class="child-3">
+				<p></p>
+				<div class="child-1"><p>Pear</p></div>
+				<div class="child-2"><p>School</p></div>
+			</div>
+		</div>
+		<div class="child-2">
+			<p>Note</p>
+			<div class="child-1">
+				<p>Human</p>
+				<div class="child-1"><p>Code</p></div>
+				<div class="child-2"><p>Operate</p></div>
+				<div class="child-3"><p>Man</p></div>
+			</div>
+			<div class="child-2">
+				<p>Program</p>
+				<div class="child-1">
+					<p>Element</p>
+					<div class="child-1"><p>Cat</p></div>
+				</div>
+				<div class="child-2"><p>Glass</p></div>
+			</div>
+		</div>
+		<div class="child-3"><p>Fish</p></div>
+	</div>
+	<div class="btn">
+		<select name="" id="opt">
+			<option value="0">深度优先</option>
+			<option value="1">广度优先</option>
+		</select>
+		<input type="button" value="开始遍历">
+		<!-- <input type="button" value="后序遍历开始"> -->
+		<input type="button" value="停止遍历">
+		<input type="text">
+		<input type="button" value="查询">
+	</div>
+</body>
+</html>

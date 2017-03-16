@@ -1,0 +1,28 @@
+div {
+	padding: 14px 5px;
+	border: 1px solid #ccc;
+	display: flex;
+	justify-content: space-between;
+	transition: background-color .8s;
+}
+.root {
+	width: 1200px;
+	margin: 100px auto 20px auto;
+}
+.root div {
+	margin-right: 10px;
+}
+.btn {
+	padding: 5px;
+	width: 700px;
+	border: none;
+	margin: 0 auto;
+}
+.btn input {
+	width: 100px;
+	height: 30px;
+}
+.btn input[type="text"] {
+	width: 200px;
+	height: 25px;
+}
