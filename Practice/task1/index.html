@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单（一）单个表单项的检验</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: "Microsoft Yahei";
+			font-size: 16px;
+		}
+		.container {
+			width: 960px;
+			margin: 30px auto;
+			text-align: center;
+		}
+		.container label {
+			display: inline-block;
+			font-weight: bold;
+			margin-right: 30px;
+			height: 42px;
+			line-height: 42px;
+		}
+		.container input {
+			width: 390px;
+			height: 30px;
+			margin-right: 30px;
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+		.container button {
+			width: 80px;
+			height: 42px;
+			border-radius: 4px;
+			border: 1px solid #468cee;
+			font-family: "Microsoft Yahei";
+			font-size: 16px;
+			color: #fff;
+			background: #468ce2;
+			cursor: pointer;
+		}
+		.container input, .container button {
+			vertical-align: middle;
+		}
+		.notice {
+			width: 450px;
+			height: 40px;
+			line-height: 40px;
+			margin: 0 auto;
+			text-align: left;
+			color: #aaa;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<label for="">名称</label>
+		<input type="text" id="info">
+		<button id="btn">验证</button>
+		<div class="notice" id="notice">
+			必填，长度为4~16个字符
+		</div>
+	</div>
+	<script>
+		var btn = document.getElementById('btn'),
+			notice = document.getElementById("notice");
+		btn.onclick = function() {
+			var info = document.getElementById("info");
+				val = info.value;
+			if(!info) {
+				notice.innerHTML = "名称不能为空";
+				notice.style.color = "#f00";
+				info.style.borderColor = "#f00";
+				info.focus();
+			} else {
+				var infoArr = val.split(''), len = 0;
+				for(var i = 0;i<infoArr.length;i++) {
+					if(infoArr[i].charCodeAt() > 0x00 && infoArr[i].charCodeAt() < 0xff){
+						len++;
+					} else {
+						len +=2;
+					}
+				}
+				if(len >= 4 && len <= 16) {
+					notice.innerHTML = "名称格式正确";
+					notice.style.color = "#26af26";
+					info.style.borderColor = "#26af26";
+				} else {
+					notice.innerHTML = "名称格式不正确";
+					notice.style.color = "#909e1d";
+					info.style.borderColor = "#909e1d";
+					info.focus();
+				}
+			}
+		}
+	</script>
+</body>
+</html>
