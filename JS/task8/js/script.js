@@ -9,7 +9,6 @@ window.onload = function() {
 		treeRoot = divs[0],
 		divList = [],
 		timer = null;
-		console.log(divs);
 	// 绑定事件		
 	start.onclick = function() {
 		var opt = select.options[select.selectedIndex].value; //获取选中的option值
