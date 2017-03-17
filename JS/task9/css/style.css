@@ -3,7 +3,7 @@
 	border: 1px solid #ccc;
 	display: inline-block;
 	cursor: pointer;
-	margin: 50px auto 20px auto;
+	margin: 20px auto;
 }
 .root div {
 	padding:5px;
@@ -15,7 +15,7 @@
 .btn {
 	padding: 5px;
 	border: none;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 .btn input, .btn select {
 	height: 30px;

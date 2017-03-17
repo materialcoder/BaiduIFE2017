@@ -13,7 +13,7 @@ window.onload = function() {
 
 	// 点击开始遍历按钮，按不同的方式进行遍历		
 	start.onclick = function() {
-		var treeRoot = document.getElementsByTagName("div")[0];
+		var treeRoot = document.getElementsByTagName("div")[1];
 		var opt = select.options[select.selectedIndex].value; //获取选中的option值
 		if(opt == 0) {
 			innit();
@@ -27,7 +27,7 @@ window.onload = function() {
 	}
 
 	// 点击时选中，并改变节点的背景色
-	for(var i=0;i<divs.length-1;i++) {
+	for(var i=1;i<divs.length;i++) {
 		divs[i].style.backgroundColor = "#fff";
 		divs[i].onclick = function(e) {
 			var e = e || document.event;
@@ -46,7 +46,7 @@ window.onload = function() {
 		if(selected) {
 			selected.innerHTML += " <div style='background-color:rgb(255,255,255);'>"+addNode+"</div>";
 			// 更新插入的节点，不加这一段，新加的节点无法点击选中
-			for(var i=0;i<divs.length-1;i++) {
+			for(var i=1;i<divs.length;i++) {
 				divs[i].onclick = function(e) {
 					var e = e || document.event;
 					e.stopPropagation();
@@ -59,8 +59,8 @@ window.onload = function() {
 		 	var nodeItem = document.createElement("div");
 		 	nodeItem.innerText = addNode;
 		 	nodeItem.className = "root";
-		 	divs[0].parentNode.insertBefore(nodeItem,divs[0]);
-			for(var i=0;i<divs.length-1;i++) {
+		 	divs[0].parentNode.appendChild(nodeItem);
+			for(var i=1;i<divs.length;i++) {
 				divs[i].onclick = function(e) {
 					var e = e || document.event;
 					e.stopPropagation();
@@ -87,7 +87,7 @@ window.onload = function() {
 
 	//点击搜索按钮开始搜索
 	search.onclick = function() {
-		var treeRoot = document.getElementsByTagName("div")[0];
+		var treeRoot = document.getElementsByTagName("div")[1];
 		var opt = select.options[select.selectedIndex].value; //获取选中的option值
 		if(opt == 0) {
 			innit();
@@ -115,7 +115,7 @@ window.onload = function() {
 	function postOrder(node) {
 		if(node!=null) {
 			divList.push(node);
-			for(var i=1;i<divs.length-1;i++) {
+			for(var i=1;i<divs.length;i++) {
 				for(var j=0;j<node.children.length;j++) {
 					divList.push(node.children[j]);
 				}
@@ -133,7 +133,7 @@ window.onload = function() {
 	function innit() {
 		divList=[];
 		if(timer) clearInterval(timer);
-		for(var i=0;i<divs.length-1;i++) {
+		for(var i=1;i<divs.length;i++) {
 			divs[i].style.backgroundColor = "#fff";
 			divs[i].id = "";
 		}
