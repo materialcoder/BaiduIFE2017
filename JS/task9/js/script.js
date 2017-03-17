@@ -133,7 +133,7 @@ window.onload = function() {
 	function innit() {
 		divList=[];
 		if(timer) clearInterval(timer);
-		for(var i=0;i<divs.length;i++) {
+		for(var i=0;i<divs.length-1;i++) {
 			divs[i].style.backgroundColor = "#fff";
 			divs[i].id = "";
 		}
@@ -164,7 +164,7 @@ window.onload = function() {
 			i++;
 			if(i < len) {
 				divList[i].style.backgroundColor = "#abcdef";
-				var tar =divList[i-1].innerText.split(" ")[0];
+				var tar =divList[i-1].innerText.split(" ")[0]; //获取node的名称
 				if(tar == val) {
 					divList[i-1].style.backgroundColor = "#f00";
 					flag = 1;
@@ -173,6 +173,7 @@ window.onload = function() {
 				}
 			} else {
 				clearInterval(timer);
+				// 如果搜索的最后一个的名字与要搜索的值相等，则背景为红色，否则变为白色
 				if(divList[len-1].innerText.split(" ")[0] != val) {
 					divList[len-1].style.backgroundColor = "#fff";
 				} else {
