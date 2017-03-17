@@ -1,0 +1,26 @@
+.root {
+	padding:5px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	cursor: pointer;
+	margin: 50px auto 20px auto;
+}
+.root div {
+	padding:5px;
+	border: 1px solid #ccc;
+	margin: 5px;
+	display: inline-block;
+	transition: background-color .8s;
+}
+.btn {
+	padding: 5px;
+	border: none;
+	margin: 0 auto;
+}
+.btn input, .btn select {
+	height: 30px;
+}
+.btn input[type="text"] {
+	width: 200px;
+	height: 25px;
+}
