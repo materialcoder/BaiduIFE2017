@@ -9,7 +9,7 @@ window.onload = function() {
 		treeRoot = divs[0],
 		divList = [],
 		timer = null;
-
+		console.log(divs);
 	// 绑定事件		
 	start.onclick = function() {
 		var opt = select.options[select.selectedIndex].value; //获取选中的option值
@@ -54,7 +54,7 @@ window.onload = function() {
 	function postOrder(node) {
 		if(node!=null) {
 			divList.push(node);
-			for(var i=1;i<divs.length;i++) {
+			for(var i=1;i<divs.length-1;i++) {
 				for(var j=1;j<node.children.length;j++) {
 					divList.push(node.children[j]);
 				}
