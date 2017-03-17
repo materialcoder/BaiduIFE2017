@@ -109,7 +109,12 @@ window.onload = function() {
 				}
 			} else {
 				clearInterval(timer);
-				divList[len-1].style.backgroundColor = "#fff";
+				if(divList[len-1].firstElementChild.innerHTML == val) {
+					divList[len-1].style.backgroundColor = "#f00";
+					flag = 1;
+				} else {
+					divList[len-1].style.backgroundColor = "#fff";
+				}
 				if(flag){
 					alert("好开心，找到了^_^");
 				} else {
