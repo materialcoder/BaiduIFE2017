@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单（二）多个表单项的检验</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<form action="" method="post" onsubmit="return formValidate()">
+			<div>
+				<label for="">名称</label>
+				<input type="text" id="username" onfocus="render(this)" onblur="formRequired(this);userValidate(this)">
+				<p class="notice">必填，长度为4~16个字符</p>
+			</div>
+			<div>
+				<label for="">密码</label>
+				<input type="password" id="pwd" onfocus="render(this)" onblur="formRequired(this);pwdValidate(this)">
+				<p class="notice">必填，长度为6~20位</p>
+			</div>
+			<div>
+				<label for="">密码确认</label>
+				<input type="password" id="repwd" onfocus="render(this)"  onblur="formRequired(this);repwdValidate(this)">
+				<p class="notice">再次输入相同密码</p>
+			</div>
+			<div>
+				<label for="">邮箱</label>
+				<input type="text" id="email" onfocus="render(this)" onblur="formRequired(this);emailValidate(this)">
+				<p class="notice">必填，请输入您的邮箱</p>
+			</div>
+			<div>
+				<label for="">手机</label>
+				<input type="text" id="phone" onfocus="render(this)" onblur="formRequired(this);phoneValidate(this)">
+				<p class="notice">必填，请输入您的手机号码</p>
+			</div>	
+			<div class="btn"><button>提交</button></div>
+		</form>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
