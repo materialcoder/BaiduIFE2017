@@ -94,7 +94,7 @@ function isValidate(field,reg,trueText,falseText) {
 function formRequired(field) {
 	if(field.value == null || field.value == "") {
 		field.nextElementSibling.innerHTML = field.previousElementSibling.innerHTML + "不能为空";
-		// field.nextElementSibling.style.display = "block";
+		field.nextElementSibling.style.display = "block";
 		field.nextElementSibling.style.color = "#f00";
 		field.style.borderColor = "#f00";
 		return false;
