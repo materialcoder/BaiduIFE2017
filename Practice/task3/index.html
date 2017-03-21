@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>任务三：表单（三）联动</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font-family: "Microsoft Yahei";
+			font-size: 18px;
+		}
+		.container {
+			width: 690px;
+			margin: 30px auto;
+		}
+		.container label {
+			margin-right: 20px;
+		}
+		.container input[type="radio"] {
+			margin-left: 130px;
+		}
+		.container .stuinfo, .container .workinfo {
+			height: 30px;
+			margin-top: 40px;
+		}
+		.container .stuinfo label, .container .workinfo label {
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			display: inline-block;
+			text-align: right;
+		}
+		.stuinfo select {
+			width: 300px;
+			height: 30px;
+			line-height: 30px;
+			font-size: 14px;
+			margin-right: 40px;
+			font-family: "Microsoft Yahei";
+		}
+		.stuinfo select:nth-of-type(1) {
+			width: 100px;
+		}
+		.workinfo input {
+			width: 434px;
+			height: 18px;
+			padding: 4px;
+		}
+		input, label {
+			vertical-align: middle;
+		}
+		.student:checked ~ .stuinfo {
+			display: block;
+		}
+		.student:checked ~ .workinfo {
+			display: none;
+		}
+		.work:checked ~ .stuinfo {
+			display: none;
+		}
+		.work:checked ~ .workinfo {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<input type="radio" name="status" id="student" class="student" checked>
+		<label for="student">在校生</label>
+		<input type="radio" name="status" id="work" class="work">
+		<label for="work">非在校生</label>
+		<div class="stuinfo">
+			<label for="">学校</label>
+			<select name="city" id="city" onchange="choose()">
+				<option value="0">北京</option>
+				<option value="1">上海</option>
+				<option value="2">杭州</option>
+				<option value="3">广州</option>
+				<option value="4">武汉</option>
+				<option value="5">成都</option>
+			</select>
+			<select name="university" id="u0">
+				<option value="">北京大学</option>
+				<option value="">清华大学</option>
+				<option value="">中国科技大学</option>
+				<option value="">北京航空航天大学</option>
+				<option value="">北京理工大学</option>
+			</select>
+			<select name="university" id="u1">
+				<option value="">上海交通大学</option>
+				<option value="">上海大学</option>
+				<option value="">复旦大学</option>
+			</select>
+			<select name="university" id="u2">
+				<option value="">浙江大学</option>
+				<option value="">X大学</option>
+				<option value="">xxx大学</option>
+				<option value="">xx大学</option>
+				<option value="">xxxx大学</option>
+			</select>
+			<select name="university" id="u3">
+				<option value="">中山大学</option>
+				<option value="">X大学</option>
+				<option value="">xxx大学</option>
+				<option value="">xx大学</option>
+				<option value="">xxxx大学</option>
+			</select>
+			<select name="university" id="u4">
+				<option value="">武汉大学</option>
+				<option value="">X大学</option>
+				<option value="">xxx大学</option>
+				<option value="">xx大学</option>
+				<option value="">xxxx大学</option>
+			</select>
+			<select name="university" id="u5">
+				<option value="">四川大学</option>
+				<option value="">X大学</option>
+				<option value="">xxx大学</option>
+				<option value="">xx大学</option>
+				<option value="">xxxx大学</option>
+			</select>
+		</div>
+		<div class="workinfo">
+			<label for="">就业单位</label>
+			<input type="text">
+		</div>
+	</div>
+	<script>
+		function choose() {
+			var $ = function(e) {
+				return document.querySelector(e);
+			}
+			var len = $("#city").getElementsByTagName('option').length,
+				selected = $("#city").selectedIndex;
+			for(var i=0;i<len;i++) {
+				$("#u"+i).style.display = "none";
+			}
+			$("#u"+selected).style.display = "inline-block";
+		}
+		choose();
+	</script>
+</body>
+</html>
