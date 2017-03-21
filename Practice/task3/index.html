@@ -75,52 +75,15 @@
 		<div class="stuinfo">
 			<label for="">学校</label>
 			<select name="city" id="city" onchange="choose()">
-				<option value="0">北京</option>
+				<!-- <option value="0">北京</option>
 				<option value="1">上海</option>
-				<option value="2">杭州</option>
-				<option value="3">广州</option>
-				<option value="4">武汉</option>
-				<option value="5">成都</option>
+				<option value="5">成都</option> -->
 			</select>
 			<select name="university" id="u0">
-				<option value="">北京大学</option>
+				<!-- <option value="">北京大学</option>
 				<option value="">清华大学</option>
 				<option value="">中国科技大学</option>
-				<option value="">北京航空航天大学</option>
-				<option value="">北京理工大学</option>
-			</select>
-			<select name="university" id="u1">
-				<option value="">上海交通大学</option>
-				<option value="">上海大学</option>
-				<option value="">复旦大学</option>
-			</select>
-			<select name="university" id="u2">
-				<option value="">浙江大学</option>
-				<option value="">X大学</option>
-				<option value="">xxx大学</option>
-				<option value="">xx大学</option>
-				<option value="">xxxx大学</option>
-			</select>
-			<select name="university" id="u3">
-				<option value="">中山大学</option>
-				<option value="">X大学</option>
-				<option value="">xxx大学</option>
-				<option value="">xx大学</option>
-				<option value="">xxxx大学</option>
-			</select>
-			<select name="university" id="u4">
-				<option value="">武汉大学</option>
-				<option value="">X大学</option>
-				<option value="">xxx大学</option>
-				<option value="">xx大学</option>
-				<option value="">xxxx大学</option>
-			</select>
-			<select name="university" id="u5">
-				<option value="">四川大学</option>
-				<option value="">X大学</option>
-				<option value="">xxx大学</option>
-				<option value="">xx大学</option>
-				<option value="">xxxx大学</option>
+				-->
 			</select>
 		</div>
 		<div class="workinfo">
@@ -129,18 +92,44 @@
 		</div>
 	</div>
 	<script>
-		function choose() {
-			var $ = function(e) {
-				return document.querySelector(e);
-			}
-			var len = $("#city").getElementsByTagName('option').length,
-				selected = $("#city").selectedIndex;
-			for(var i=0;i<len;i++) {
-				$("#u"+i).style.display = "none";
-			}
-			$("#u"+selected).style.display = "inline-block";
+		
+		var $ = function(e) {
+			return document.querySelector(e);
 		}
-		choose();
+
+		var data = {"北京":["北京大学","清华大学","中国科技大学","北京航空航天大学","北京理工大学"],
+					"北京1":["北京大学1","清华大学1"],
+					"北京2":["北京大学2","清华大学2"],
+					"北京3":["北京大学3","清华大学3"]
+					};
+		// 创建选项
+		function createOption(id,cont) {
+			var option = document.createElement("option");
+			option.innerHTML = cont;
+			option.value = cont;
+			$("#"+id).appendChild(option);
+		}
+	
+		// 改变城市时，改变对应的大学
+		function choose() {
+			$("#u0").innerHTML = "";
+			var selected = $("#city").options[$("#city").selectedIndex].value,
+				len = data[selected].length;
+			for(var j=0;j<len;j++) {
+				createOption("u0",data[selected][j]);
+			}
+		}
+
+		// 初始化
+		(function init() {
+			var firstCity = "北京"; //可改变，打开界面时显示的城市
+			for(var key in data) {
+				createOption("city",key);
+			}
+			for(var j=0;j<data[firstCity].length;j++) {
+				createOption("u0",data[firstCity][j]);
+			}
+		})();
 	</script>
 </body>
 </html>
