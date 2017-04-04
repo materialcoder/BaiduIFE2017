@@ -28,7 +28,33 @@
 </head>
 <body>
 	<div class="container">
-		<a href="javascript:;" id="login">登录</a>
+		<a href="javascript:;" id="login">点我</a>
+		<div class="readme">
+			<h3>说明：</h3>
+			<p>1、该组件基于jQuery，使用时需要引入jQuery和组件中的layer.css，layer.js</p>
+			<p>2、该组件默认为屏幕水平垂直居中，可支持自定义浮层位置、大小，标题、内容和按钮文字。使用方法为：</p>
+			<pre>
+				var layer = new Layer();
+				layer.alertMsg({
+					width: 400,
+					height: 300,
+					title: "提示",
+					content: "这是一个大的浮层",
+					btn: ['确认','取消'],
+					top: 100,
+					left: 100
+				});
+			</pre>
+			<p>3、默认支持拖拽窗口title部分移动浮出窗口位置，可通过设置 isDragable:false 取消</p>
+			<p>4、默认点击浮出层以外部分关闭浮出层</p>
+			<p>5、支持传入点击确认或取消按钮后的执行函数，方法为：</p>
+			<pre>
+				layer.alertMsg({
+					yes: function() { },
+					no: function() { }
+				});
+			</pre>
+		</div>
 	</div>
 </body>
 </html>
